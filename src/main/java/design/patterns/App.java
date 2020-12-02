@@ -3,12 +3,18 @@
  */
 package design.patterns;
 
-public class App {
-    public String getGreeting() {
-        return "Hello world.";
-    }
+import design.patterns.solution.impl.CurrentConditionDisplay;
+import design.patterns.solution.impl.WeatherManager;
 
+/**
+ * App is the weather station
+ * */
+public class App {
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+		WeatherManager wm = new WeatherManager();
+
+		wm.registerObserver(new CurrentConditionDisplay());
+
+		wm.setMeasurement(10, 20, 30);
     }
 }
